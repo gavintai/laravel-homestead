@@ -32,7 +32,7 @@ class Homestead
     config.vm.provider "virtualbox" do |vb|
       vb.name = settings["name"] ||= "homestead-7"
       vb.customize ["modifyvm", :id, "--memory", settings["memory"] ||= "2048"]
-      vb.customize ["modifyvm", :id, "--cpus", settings["cpus"] ||= "1"]
+      vb.customize ["modifyvm", :id, "--cpus", settings["cpus"] ||= "2"]
       vb.customize ["modifyvm", :id, "--natdnsproxy1", "on"]
       vb.customize ["modifyvm", :id, "--natdnshostresolver1", settings["natdnshostresolver"] ||= "on"]
       vb.customize ["modifyvm", :id, "--ostype", "Ubuntu_64"]
@@ -79,7 +79,8 @@ class Homestead
       443  => 44300,
       3306 => 33060,
       5432 => 54320,
-      27017 => 27017
+      27017 => 27017,
+      35729 => 35729
     }
 
     # Use Default Port Forwarding Unless Overridden
